@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты поиска</title>
+</head>
+<body>
+    <h1>Результаты поиска</h1>
+
+    <form method="get" action="{% url 'search_posts' %}">
+        {{ form.as_p }}
+        <input type="submit" value="Искать">
+    </form>
+
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }}</li>
+        {% empty %}
+            <p>Посты не найдены.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

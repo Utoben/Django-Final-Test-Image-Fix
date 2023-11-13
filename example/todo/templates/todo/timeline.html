@@ -1,0 +1,18 @@
+
+
+{% extends 'todo/base.html' %}
+{% block title %}
+Создать Пост
+{%endblock%}
+
+{% block content %}
+    <h2>Создать Пост</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p class="fixed-top">{{ form.title }}</p>
+        {{ form.post }}
+        <p><input multiple type="file" name="image"></p>
+        <button type="submit" class="btn btn-primary">Создать</button>
+        <span>{{ error }}</span>
+    </form>
+{%endblock%}

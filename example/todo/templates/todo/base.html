@@ -1,0 +1,15 @@
+    {{title}}
+
+            {% block content %}
+                <h2>Главное страница</h2>
+                {% if tasks %}
+                {% for el in tests%}
+                    <div class="alert alert-warning mt-2">
+                        <h3>{{el.title}}</h3>
+                        <p>{{el.task}}</p>
+                    </div>
+                {%endfor%}
+                {% else %}
+                    <p>У нас нет записей</p>
+                {% endif %}
+            {%endblock%}
