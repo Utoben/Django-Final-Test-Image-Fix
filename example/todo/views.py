@@ -41,12 +41,15 @@ def home_view(request):
     post = Post.objects.order_by('-id')
     user = request.user
     categories = Tags.objects.all()
+    image_set = Image.objects.all()
+    # print(image_set)
     print(user, user)
     context = {
         'tasks': tasks,
         'user': user,
         'post': post,
         'categories': categories,
+        'images': image_set,
    }
     return render(request, 'todo/about.html', context)
 
@@ -86,8 +89,10 @@ def post_create(request): #создание поста
             post.author=user
 
             post.save()
-
+            # try:
             image_files = request.FILES.getlist('image')
+            # except Exception as e:
+            #     print(e)
             for image_file in image_files:
                 print(image_file)
                 PILImage.open(image_file)

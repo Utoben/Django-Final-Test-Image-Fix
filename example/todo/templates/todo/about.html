@@ -99,7 +99,7 @@ http://www.tooplate.com/view/2094-mason
 <!--                                    <div class="post-content">-->
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <div class="tm-bg-gray" style="padding: 15px; background-color: ; border-radius: 20px; border: 2px solid white;">
+                                            <div class="tm-bg-gray" style="padding: 15px; border-radius: 20px; border: 2px solid white;">
                                                 <h3>{{ post.title }}</h3>
                                                 <p>{{ post.post }}</p>
                                                 <p>{{ post.author }}</p>
@@ -109,7 +109,15 @@ http://www.tooplate.com/view/2094-mason
 <!--                                    </div>-->
                                         </div>
                                         <div class="post-image col-sm-4 text-center">
-                                            <img src="media/{{ post.image }}" width="250" alt="Image">
+                                            {% for image in images %}
+                                                {% if image.post == post %}
+                                                    <img src="{{ image.image }}" width="250" alt="Image">
+                                                {% else %}
+                                                    <!-- s -->
+                                                {% endif %}
+                                            {% empty %}
+                                                Пусто
+                                            {%endfor%}
                                         </div>
                                     </div>
                                 </div>

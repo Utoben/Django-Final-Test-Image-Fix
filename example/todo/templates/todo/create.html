@@ -93,13 +93,14 @@ http://www.tooplate.com/view/2094-mason
                                 <h2>Создать Пост</h2>
                             </div>
                             <p><div class="row">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {{ form.title }}
                                     {{ form.post }}
                                     {{ form.tag }}
-                                    <p><input multiple type="file" name="image" class="form-control form-control-sm"></p>
+                                    
                                     <button type="submit" class="btn btn-outline-primary">Создать</button>
+                                    <input type="file" class="form-control form-control-sm" name="image"  multiple>
                                     <span>{{ error }}</span>
                                 </form>
                             </div></p>
